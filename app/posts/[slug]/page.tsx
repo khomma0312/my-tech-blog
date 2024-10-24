@@ -1,7 +1,5 @@
-import parse from "html-react-parser";
-import DOMPurify from "dompurify";
-import marked from "@/lib/marked";
 import { getPostBySlug } from "@/features/posts/api";
+import { markdownToHtml } from "@/utils/markdown-to-html";
 
 type Props = {
   params: {
@@ -15,9 +13,7 @@ const Post = async ({ params }: Props) => {
   const post = getPostBySlug(slug);
 
   // postからHTMLへ変換
-  const html = await marked.parse(post.content || "");
-  const sanitizedHtml = DOMPurify.sanitize(html);
-  const content = parse(sanitizedHtml);
+  const content = await markdownToHtml(post.content || "");
 
   return <article>{content}</article>;
 };
