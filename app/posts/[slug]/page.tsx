@@ -9,10 +9,10 @@ type Props = {
 
 const Post = async ({ params }: Props) => {
   const { slug } = params;
-  // 特定ディレクトリからmarkdownファイルを取得
-  const post = getPostBySlug(slug);
 
-  // postからHTMLへ変換
+  // 対象のslugのmarkdownファイルの内容を取得
+  const post = getPostBySlug(slug);
+  // markdownからHTMLに変換
   const content = await markdownToHtml(post.content || "");
 
   return <article>{content}</article>;
