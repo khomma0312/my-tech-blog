@@ -18,7 +18,7 @@ const navItems = [
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center w-full h-14 p-5">
+    <header className="sticky top-0 flex justify-between items-center w-full h-14 p-5 border-b border-slate-500 bg-inherit">
       <a>Logo</a>
       <nav className="flex gap-4">
         {navItems.map((item) => (

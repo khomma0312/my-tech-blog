@@ -1,0 +1,17 @@
+.markdown {
+  /* Base styling */
+  @apply prose prose-invert;
+
+  /* Headings */
+  @apply prose-headings:mb-4 prose-headings:border-b prose-headings:border-slate-700 prose-headings:text-slate-100 prose-headings:font-normal;
+
+  /* Links */
+  @apply prose-a:text-primary prose-a:no-underline prose-a:font-semibold hover:prose-a:text-primary-500;
+
+  /* Code */
+  @apply prose-code:before:content-none prose-code:after:content-none prose-code:bg-slate-900 prose-code:rounded-sm prose-code:p-1;
+  @apply prose-pre:bg-slate-900 prose-pre:p-0;
+
+  /* ul, li */
+  @apply prose-li:marker:text-slate-300;
+}
