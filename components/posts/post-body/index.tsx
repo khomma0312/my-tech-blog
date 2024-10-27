@@ -7,7 +7,7 @@ type Props = {
 };
 
 const PostBody = ({ content }: Props) => {
-  return <div className={cn(styles.markdown, "py-6")}>{content}</div>;
+  return <div className={cn(styles.markdown, "py-2")}>{content}</div>;
 };
 
 export default PostBody;
