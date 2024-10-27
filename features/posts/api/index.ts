@@ -9,5 +9,5 @@ export const getPostBySlug = (slug: string) => {
   const fileContents = readFileSync(path, { encoding: "utf-8" });
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug, content };
+  return { data, slug, content };
 };
