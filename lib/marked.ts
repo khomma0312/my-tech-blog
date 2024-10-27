@@ -1,6 +1,8 @@
 import { Marked } from "marked";
 import hljs from "highlight.js";
 
+// 元々のコードブロックのrendererのロジックは以下参照
+// https://github.com/markedjs/marked/blob/59d5350fdf1b866af749372808ee60f0bf3060d8/src/Renderer.ts#L24
 const escapeTest = /[&<>"']/;
 const escapeReplace = new RegExp(escapeTest.source, "g");
 const escapeReplacements: { [index: string]: string } = {
