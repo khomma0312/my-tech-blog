@@ -18,7 +18,7 @@ const Post = async ({ params }: Props) => {
   const content = await markdownToHtml(post.content || "");
 
   return (
-    <div className="mx-auto max-w-prose">
+    <div className="mx-auto max-w-[480px] md:max-w-prose py-8">
       <article className={styles.markdown}>{content}</article>
     </div>
   );
