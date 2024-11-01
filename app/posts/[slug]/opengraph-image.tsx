@@ -1,25 +1,24 @@
 import { ImageResponse } from "next/og";
-// import { join } from 'node:path'
-// import { readFile } from 'node:fs/promises'
-// import Image from "next/image";
 import { getPostBySlug } from "@/features/posts/api";
+import fs from "fs";
+import path from "path";
 
 const OgImage = async ({ params }: { params: { slug: string } }) => {
-  // なければ、デフォルトのタイトルを入れたイメージを生成する（トップページなどの場合を想定）
   const { slug } = params;
 
-  // TODO: Request Memoizationでキャッシュするよう設定したい
   const post = getPostBySlug(slug);
   const { data } = post;
 
-  // このやり方で静的画像を読み込める
-  // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#using-nodejs-runtime-with-local-assets
+  const font = fs.readFileSync(
+    path.join(process.cwd(), "public/NotoSansJP-SemiBold.ttf")
+  );
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(hsl(252 11 17), hsl(254 27 35))",
+          background: "linear-gradient(135deg, #7464a6 10%, #4c4171 100%)",
+          color: "#f3f3f3",
           width: "100%",
           height: "100%",
           padding: "30px",
@@ -32,7 +31,7 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            background: "#fff",
+            backgroundColor: "#181b29",
             borderRadius: "8px",
             padding: "50px 50px 30px",
             justifyContent: "center",
@@ -40,23 +39,24 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
         >
           <h3
             style={{
-              fontSize: 36,
+              fontSize: 48,
               paddingBottom: "30px",
+              fontWeight: 600,
             }}
           >
             {data.title}
           </h3>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <p>{data.date}</p>
+            <p style={{ fontSize: 24 }}>{data.date}</p>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <img
                 src="https://github.com/khomma0312.png"
-                width={30}
-                height={30}
+                width={45}
+                height={45}
                 alt="GitHub user icon"
                 style={{ borderRadius: "50%" }}
               />
-              <p>@khomma0312</p>
+              <p style={{ fontSize: 24 }}>@khomma0312</p>
             </div>
           </div>
         </div>
@@ -65,6 +65,12 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          data: font,
+          name: "Noto Sans JP",
+        },
+      ],
     }
   );
 };
