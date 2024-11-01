@@ -10,11 +10,11 @@ type StaticParams = {
   slug: string;
 };
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
   params: { slug: string };
-}): Metadata => {
+}): Promise<Metadata> => {
   const { slug } = params;
   const post = getPostBySlug(slug);
   const { data } = post;
