@@ -48,6 +48,7 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
               style={{
                 fontSize: 48,
                 fontWeight: 600,
+                textAlign: "center",
               }}
             >
               {data.title}
