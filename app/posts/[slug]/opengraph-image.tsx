@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { getPostBySlug } from "@/features/posts/api";
 import fs from "fs";
 import path from "path";
+import { getPostBySlug } from "@/features/posts/api";
 
 const OgImage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
@@ -22,13 +22,12 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
           width: "100%",
           height: "100%",
           padding: "30px",
-          textAlign: "center",
-          justifyContent: "center",
           display: "flex",
         }}
       >
         <div
           style={{
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             backgroundColor: "#181b29",
@@ -37,15 +36,23 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
             justifyContent: "center",
           }}
         >
-          <h3
+          <div
             style={{
-              fontSize: 48,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
               paddingBottom: "30px",
-              fontWeight: 600,
             }}
           >
-            {data.title}
-          </h3>
+            <h3
+              style={{
+                fontSize: 48,
+                fontWeight: 600,
+              }}
+            >
+              {data.title}
+            </h3>
+          </div>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <p style={{ fontSize: 24 }}>{data.date}</p>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
