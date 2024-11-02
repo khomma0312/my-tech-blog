@@ -1,22 +1,12 @@
 import { getAllPostsSlug, getPostBySlug } from "@/features/posts/api";
-import {
-  Card,
-  CardContent,
-  // CardDescription,
-  // CardFooter,
-} from "@/components/ui/card";
-
-type Posts = {
-  title: string;
-  date: string;
-  tags?: string[] | undefined;
-};
+import PostCard from "@/components/posts/post-card";
 
 const Home = async () => {
   const slugs = getAllPostsSlug();
-  const posts: Posts[] = slugs.map((slug) => {
+  const posts = slugs.map((slug) => {
     const post = getPostBySlug(slug);
     return {
+      slug,
       title: post.data.title,
       date: post.data.date,
       tags: post.data?.tags,
@@ -24,12 +14,10 @@ const Home = async () => {
   });
 
   return (
-    <div className="max-w-screen-xl w-100 mx-auto px-6 pt-12 pb-32">
-      <div className="grid grid-cols-3 gap-8">
+    <div className="max-w-screen-xl mx-auto px-6 pt-12 pb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
-          <Card key={post.title} className="border-primary-100">
-            <CardContent>{post.title}</CardContent>
-          </Card>
+          <PostCard key={post.title} post={post} />
         ))}
       </div>
 
