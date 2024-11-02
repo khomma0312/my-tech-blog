@@ -1,3 +1,4 @@
+import { Tag } from "lucide-react";
 import Link from "next/link";
 
 type Props = {
@@ -8,9 +9,10 @@ const TagLink = ({ tag }: Props) => {
   return (
     <Link
       href={`/posts?tag=${tag}`}
-      className="bg-primary-50/65 border border-slate-600 rounded-md px-1 py-0.5 text-sm hover:bg-primary-50"
+      className="flex items-center gap-1 text-xs md:text-sm text-primary hover:text-primary/80"
     >
-      {tag}
+      <Tag size={15} />
+      <span>{tag}</span>
     </Link>
   );
 };
