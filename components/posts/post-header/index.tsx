@@ -14,7 +14,12 @@ const PostHeader = ({ title, date, tags }: Props) => {
       </h1>
       <div className="flex justify-end">
         <div className="flex flex-col">
-          <span className="text-slate-400 pb-2 text-sm">投稿日時: {date}</span>
+          <time
+            dateTime={new Date(date).toISOString()}
+            className="text-slate-400 pb-2 text-sm"
+          >
+            投稿日時: {date}
+          </time>
           {tags && (
             <div className="flex gap-1 items-center justify-end">
               <span className="text-slate-400 text-sm">タグ: </span>

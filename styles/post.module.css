@@ -6,7 +6,7 @@
   @apply prose-headings:mb-4 prose-headings:border-b prose-headings:border-slate-700 prose-headings:text-slate-100 prose-headings:font-normal;
 
   /* Links */
-  @apply prose-a:text-primary prose-a:no-underline prose-a:font-semibold hover:prose-a:text-primary-500;
+  @apply prose-a:text-primary prose-a:no-underline prose-a:font-semibold hover:prose-a:text-primary/80;
 
   /* Code */
   @apply prose-code:before:content-none prose-code:after:content-none prose-code:bg-slate-900 prose-code:rounded-sm prose-code:p-1;
