@@ -11,8 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | My Tech Blog",
-    default: "Home | My Tech Blog",
+    template: `%s | ${process.env.SITE_NAME}`,
+    default: `Home | ${process.env.SITE_NAME}`,
   },
   description: "Web系の技術情報を投稿するブログです。",
 };
