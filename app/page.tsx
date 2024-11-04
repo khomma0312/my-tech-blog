@@ -1,22 +1,17 @@
-import { getAllPostsSlug, getPostBySlug } from "@/features/posts/api";
-import PostsLayout from "@/components/layouts/posts-layout";
+import { getAllPostsOrderedByDate } from "@/features/posts/api";
+import PostListLayout from "@/components/layouts/post-list-layout";
+import PostCardsGrid from "@/components/layouts/post-cards-grid";
 
 const Home = async () => {
-  const slugs = getAllPostsSlug();
-  const posts = slugs.map((slug) => {
-    const { data } = getPostBySlug(slug);
-    return {
-      slug,
-      title: data.title,
-      date: data.date,
-      tags: data.tags,
-    };
-  });
-
+  const posts = getAllPostsOrderedByDate();
   // markdownファイル内のdateフィールドで降順にソート
   posts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 
-  return <PostsLayout posts={posts} />;
+  return (
+    <PostListLayout>
+      <PostCardsGrid posts={posts} />
+    </PostListLayout>
+  );
 };
 
 export default Home;
