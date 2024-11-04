@@ -27,10 +27,9 @@ const Tag = ({ params }: { params: { tag: string } }) => {
     return postTags?.includes(tag);
   });
 
-  const tagToDisplay = postsWithSelectedTag
-    .map((post) => post.tags)
-    .flat()
-    .find((postTag) => postTag && formatTagForLink(postTag) === tag);
+  const tagToDisplay = postsWithSelectedTag[0]?.tags?.find(
+    (postTag) => postTag && formatTagForLink(postTag) === tag
+  );
 
   return (
     <PostListLayout>
