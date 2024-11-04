@@ -1,3 +1,4 @@
+import PageTitle from "@/components/shared/page-title";
 import TagLink from "@/components/shared/tag-link";
 
 type Props = {
@@ -9,9 +10,7 @@ type Props = {
 const PostHeader = ({ title, date, tags }: Props) => {
   return (
     <div className="pb-12">
-      <h1 className="text-center text-3xl md:text-4xl font-bold py-8">
-        {title}
-      </h1>
+      <PageTitle>{title}</PageTitle>
       <div className="flex justify-end">
         <div className="flex flex-col">
           <time
