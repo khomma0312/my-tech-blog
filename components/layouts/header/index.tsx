@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoLogoGithub } from "react-icons/io";
-import catLogo from "/public/cat.svg";
+import logo from "/public/logo.png";
 
 const navItems = [
   {
@@ -22,7 +22,13 @@ const Header = () => {
   return (
     <header className="sticky top-0 flex justify-between items-center w-full h-14 p-6 border-b text-[15px] border-slate-500 backdrop-blur">
       <Link className="flex items-center gap-2 font-semibold" href="/">
-        <Image src={catLogo} alt="Site logo" width={30} height={30} />
+        <Image
+          src={logo}
+          alt="Site logo"
+          width={30}
+          height={30}
+          className="rounded-full"
+        />
         <span>{process.env.SITE_NAME}</span>
       </Link>
       <nav className="flex items-center gap-5">
