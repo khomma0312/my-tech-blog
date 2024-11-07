@@ -1,6 +1,7 @@
 import { getAllPostsOrderedByDate } from "@/features/posts/api";
 import PostListLayout from "@/components/layouts/post-list-layout";
-import PostCardsGrid from "@/components/layouts/post-cards-grid";
+import CardsGrid from "@/components/layouts/cards-grid";
+import PostCard from "@/components/posts/post-card";
 
 const Home = async () => {
   const posts = getAllPostsOrderedByDate();
@@ -9,7 +10,11 @@ const Home = async () => {
 
   return (
     <PostListLayout>
-      <PostCardsGrid posts={posts} />
+      <CardsGrid>
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </CardsGrid>
     </PostListLayout>
   );
 };
