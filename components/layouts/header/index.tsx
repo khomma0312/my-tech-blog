@@ -20,7 +20,7 @@ const navItems = [
 
 const Header = () => {
   return (
-    <header className="sticky top-0 flex justify-between items-center w-full h-14 p-6 border-b text-[15px] border-slate-500 backdrop-blur">
+    <header className="sticky z-header top-0 flex justify-between items-center w-full h-14 p-6 border-b text-[15px] border-slate-500 backdrop-blur">
       <Link className="flex items-center gap-2 font-semibold" href="/">
         <Image
           src={logo}

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import PostListLayout from "@/components/layouts/post-list-layout";
-import PostCardsGrid from "@/components/layouts/post-cards-grid";
+import CardsGrid from "@/components/layouts/cards-grid";
+import PostCard from "@/components/posts/post-card";
 import TagLink from "@/components/shared/tag-link";
 import { getAllPostsOrderedByDate } from "@/features/posts/api";
 import { formatTagForLink } from "@/lib/utils";
@@ -43,7 +44,11 @@ const Tag = ({ params }: { params: { tag: string } }) => {
           指定されたタグが存在しませんでした。
         </h1>
       )}
-      <PostCardsGrid posts={postsWithSelectedTag} />
+      <CardsGrid>
+        {postsWithSelectedTag.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </CardsGrid>
     </PostListLayout>
   );
 };
