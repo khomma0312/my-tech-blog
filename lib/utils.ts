@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { JSDOM } from "jsdom";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -21,21 +22,35 @@ export const extractOgpDataFromHead = (head: HTMLHeadElement) => {
       )
       // 必要なOGPデータをオブジェクトにまとめる
       .reduce((acc, cur) => {
+        const content = cur.getAttribute("content");
+
         if (cur.getAttribute("property") === "og:title") {
-          const content = cur.getAttribute("content");
           return { ...acc, title: content || "" };
         }
 
         if (cur.getAttribute("property") === "og:image") {
-          const content = cur.getAttribute("content");
           return { ...acc, image: content || "" };
         }
 
         if (cur.getAttribute("property") === "og:url") {
-          const content = cur.getAttribute("content");
           return { ...acc, url: content || "" };
         }
+
+        if (cur.getAttribute("property") === "og:description") {
+          return { ...acc, description: content || "" };
+        }
         return acc;
-      }, {} as { title: string; image: string; url: string })
+      }, {} as { title: string; image: string; url: string; description: string })
   );
+};
+
+export const getOgpDataFromUrl = async (url: string) => {
+  const html = await fetch(url).then((res) => res.text());
+  // HTML文字列を解析し、headタグ要素を取得
+  const { document } = new JSDOM(html).window;
+  const { head } = document;
+  // headタグ内から必要なOGPデータを取得
+  const ogpData = extractOgpDataFromHead(head);
+
+  return ogpData;
 };
