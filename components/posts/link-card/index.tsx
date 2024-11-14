@@ -2,17 +2,17 @@ import Link from "next/link";
 import { cn, getOgpDataFromUrl } from "@/lib/utils";
 
 type Props = {
-  href: string;
+  url: string;
 };
 
-const LinkCard = async ({ href }: Props) => {
-  const { title, description, image } = await getOgpDataFromUrl(href);
-  const domain = new URL(href).hostname;
+const LinkCard = async ({ url }: Props) => {
+  const { title, description, image } = await getOgpDataFromUrl(url);
+  const domain = new URL(url).hostname;
 
   return (
     <div className="not-prose bg-background border border-primary-200 my-3 rounded-sm md:my-5 md:rounded-md hover:bg-neutral-50/10">
       <Link
-        href={href}
+        href={url}
         className="grid grid-cols-[1fr_220px] md:grid-cols-[1fr_280px]"
         target="_blank"
       >
@@ -23,7 +23,7 @@ const LinkCard = async ({ href }: Props) => {
           )}
         >
           <div className="font-semibold text-sm md:text-base">
-            <p className="line-clamp-1">{title ? title : href}</p>
+            <p className="line-clamp-1">{title ? title : url}</p>
           </div>
           {description && (
             <div className="text-xs md:text-sm text-slate-400">
