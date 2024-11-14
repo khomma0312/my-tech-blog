@@ -13,7 +13,7 @@ type Props = {
 const ZennCard = ({ post }: Props) => {
   return (
     <Card className="border-primary-100 rounded-lg relative w-full h-full">
-      <Link href={post.url}>
+      <Link href={post.url} target="_blank">
         <Image
           width={1200}
           height={630}
