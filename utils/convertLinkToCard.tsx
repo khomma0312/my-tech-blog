@@ -8,7 +8,10 @@ export const convertLinkToCard = (href: string) => {
   const domain = matches ? matches[1] : "";
   const path = matches ? matches[2] : "";
 
-  if (["youtube.com"].includes(domain) && path.startsWith("watch")) {
+  if (
+    (domain === "youtube.com" && path.startsWith("watch")) ||
+    domain === "youtu.be"
+  ) {
     return <YouTubeEmbed url={href} />;
   }
 
