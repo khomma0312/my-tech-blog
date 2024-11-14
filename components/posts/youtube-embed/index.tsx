@@ -14,7 +14,7 @@ const YouTubeEmbed = async ({ url }: Props) => {
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
       allowFullScreen
-      className="w-full h-full aspect-video my-3 md:my-5"
+      className="w-full h-full aspect-video my-3 md:px-5 md:my-5"
     ></iframe>
   );
 };
