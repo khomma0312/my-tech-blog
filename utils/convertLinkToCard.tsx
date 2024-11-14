@@ -1,4 +1,5 @@
 import YouTubeEmbed from "@/components/posts/youtube-embed";
+import XLinkCard from "@/components/posts/x-link-card";
 import LinkCard from "@/components/posts/link-card";
 
 export const convertLinkToCard = (href: string) => {
@@ -7,18 +8,13 @@ export const convertLinkToCard = (href: string) => {
   const domain = matches ? matches[1] : "";
   const path = matches ? matches[2] : "";
 
-  console.log(matches);
-
-  switch (domain) {
-    case "youtube.com":
-      return path.startsWith("watch") ? (
-        <YouTubeEmbed href={href} />
-      ) : (
-        <LinkCard href={href} />
-      );
-    // case "x.com":
-    //   return <XLinkCard href={href} />;
-    default:
-      return <LinkCard href={href} />;
+  if (["youtube.com"].includes(domain) && path.startsWith("watch")) {
+    return <YouTubeEmbed url={href} />;
   }
+
+  if (["x.com", "twitter.com"].includes(domain) && path.includes("status")) {
+    return <XLinkCard url={href} options={{ theme: "dark" }} />;
+  }
+
+  return <LinkCard url={href} />;
 };
