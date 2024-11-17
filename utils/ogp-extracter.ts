@@ -1,15 +1,3 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { JSDOM } from "jsdom";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export const formatTagForLink = (tag: string) => {
-  return tag.toLowerCase().replaceAll(" ", "");
-};
-
 export const extractOgpDataFromHead = (head: HTMLHeadElement) => {
   return (
     // HTMLCollectionのままではループが回せないので、[...head.children]で配列にしてiterableなオブジェクトにする
@@ -42,15 +30,4 @@ export const extractOgpDataFromHead = (head: HTMLHeadElement) => {
         return acc;
       }, {} as { title: string; image: string; url: string; description: string })
   );
-};
-
-export const getOgpDataFromUrl = async (url: string) => {
-  const html = await fetch(url).then((res) => res.text());
-  // HTML文字列を解析し、headタグ要素を取得
-  const { document } = new JSDOM(html).window;
-  const { head } = document;
-  // headタグ内から必要なOGPデータを取得
-  const ogpData = extractOgpDataFromHead(head);
-
-  return ogpData;
 };

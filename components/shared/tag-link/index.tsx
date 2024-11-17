@@ -1,6 +1,6 @@
 import { Tag } from "lucide-react";
 import Link from "next/link";
-import { formatTagForLink } from "@/lib/utils";
+import { formatTagForLink } from "@/utils/common";
 
 type Props = {
   tag: string;

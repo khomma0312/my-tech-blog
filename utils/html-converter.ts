@@ -2,7 +2,8 @@ import marked from "@/lib/marked";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import parse, { Element } from "html-react-parser";
-import { convertLinkToCard } from "./convertLinkToCard";
+import { convertLinkToCard } from "./link-card-converter";
+import { extractOgpDataFromHead } from "./ogp-extracter";
 
 export const markdownToHtml = async (content: string) => {
   const html = await marked.parse(content || "");
@@ -27,4 +28,15 @@ export const markdownToHtml = async (content: string) => {
       }
     },
   });
+};
+
+export const getOgpDataFromUrl = async (url: string) => {
+  const html = await fetch(url).then((res) => res.text());
+  // HTML文字列を解析し、headタグ要素を取得
+  const { document } = new JSDOM(html).window;
+  const { head } = document;
+  // headタグ内から必要なOGPデータを取得
+  const ogpData = extractOgpDataFromHead(head);
+
+  return ogpData;
 };

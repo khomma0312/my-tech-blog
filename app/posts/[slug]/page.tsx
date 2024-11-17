@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getAllPostsSlug, getPostBySlug } from "@/features/posts/api";
-import { markdownToHtml } from "@/utils/markdown-to-html";
+import { markdownToHtml } from "@/utils/html-converter";
 import PostHeader from "@/components/posts/post-header";
 import PostBody from "@/components/posts/post-body";
 import Divider from "@/components/shared/divider";

@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
 import "highlight.js/styles/github-dark.css";
 import styles from "@/styles/post.module.css";
+import { cn } from "@/utils/common";
 
 type Props = {
   content: string | JSX.Element | JSX.Element[];

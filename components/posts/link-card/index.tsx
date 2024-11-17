@@ -1,12 +1,17 @@
 import Link from "next/link";
-import { cn, getOgpDataFromUrl } from "@/lib/utils";
+import { cn } from "@/utils/common";
 
 type Props = {
   url: string;
+  ogpData: {
+    title: string;
+    description: string;
+    image: string;
+  };
 };
 
-const LinkCard = async ({ url }: Props) => {
-  const { title, description, image } = await getOgpDataFromUrl(url);
+const LinkCard = ({ url, ogpData }: Props) => {
+  const { title, description, image } = ogpData;
   const domain = new URL(url).hostname;
 
   return (
@@ -27,7 +32,7 @@ const LinkCard = async ({ url }: Props) => {
           </div>
           {description && (
             <div className="text-xs md:text-sm text-slate-400">
-              <span className="line-clamp-2">{description}</span>
+              <span className="line-clamp-1">{description}</span>
             </div>
           )}
           <div className="flex items-center gap-1 text-xs md:text-sm">
@@ -39,7 +44,7 @@ const LinkCard = async ({ url }: Props) => {
           <div>
             <img
               src={image}
-              alt=""
+              alt="OGP Image"
               className="max-w-full rounded-tr-md rounded-br-md"
             />
           </div>

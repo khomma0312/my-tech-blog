@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ type Props = {
 
 const ZennCard = ({ post }: Props) => {
   return (
-    <Card className="border-primary-100 rounded-lg relative w-full h-full">
+    <Card className="border-primary-100 rounded-lg relative w-full h-full hover:bg-neutral-50/10">
       <Link href={post.url} target="_blank">
         <Image
           width={1200}
