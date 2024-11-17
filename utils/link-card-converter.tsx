@@ -1,6 +1,6 @@
 import YouTubeEmbed from "@/components/posts/youtube-embed";
 import XLinkCard from "@/components/posts/x-link-card";
-import LinkCard from "@/components/posts/link-card";
+import LinkCardContainer from "@/components/posts/link-card-container";
 
 export const convertLinkToCard = (href: string) => {
   // YouTubeか、Twitterか、普通のリンクかでコンポーネントを出し分ける(正規表現とかで判定)
@@ -19,5 +19,5 @@ export const convertLinkToCard = (href: string) => {
     return <XLinkCard url={href} options={{ theme: "dark" }} />;
   }
 
-  return <LinkCard url={href} />;
+  return <LinkCardContainer url={href} />;
 };

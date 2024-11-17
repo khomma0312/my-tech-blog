@@ -1,9 +1,9 @@
 import PostListLayout from "@/components/layouts/post-list-layout";
 import CardsGrid from "@/components/layouts/cards-grid";
 import { JSDOM } from "jsdom";
-import { extractOgpDataFromHead } from "@/lib/utils";
 import ZennCard from "@/components/zenn/zenn-card";
 import { getZennPostHtmls, getZennPosts } from "@/features/zenn/api";
+import { extractOgpDataFromHead } from "@/utils/ogp-extracter";
 
 export const metadata = {
   title: "Zenn記事一覧",
