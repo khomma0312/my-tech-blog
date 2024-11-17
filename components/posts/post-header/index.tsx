@@ -20,11 +20,15 @@ const PostHeader = ({ title, date, tags }: Props) => {
             投稿日時: {date}
           </time>
           {tags && (
-            <div className="flex gap-1 items-center justify-end">
+            <div className="flex gap-2">
               <span className="text-slate-400 text-sm">タグ: </span>
-              {tags.map((tag: string) => (
-                <TagLink key={tag} tag={tag} />
-              ))}
+              <ul className="flex gap-2 items-center">
+                {tags.map((tag: string) => (
+                  <li key={tag}>
+                    <TagLink tag={tag} />
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>
