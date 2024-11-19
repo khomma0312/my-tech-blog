@@ -1,4 +1,4 @@
-type ZennPost = {
+export type ZennPosts = {
   articles: {
     id: number;
     post_type: string;
@@ -12,7 +12,7 @@ type ZennPost = {
     is_suspending_private: boolean;
     published_at: string;
     body_updated_at: string;
-    source_repo_updated_at: boolean;
+    source_repo_updated_at: boolean | null;
     pinned: boolean;
     path: string;
     user: {
@@ -21,6 +21,7 @@ type ZennPost = {
       name: string;
       avatar_small_url: string;
     };
+    publication: null;
   }[];
 };
 
@@ -28,7 +29,7 @@ export const getZennPosts = async () => {
   const res = await fetch(
     `https://zenn.dev/api/articles?username=${process.env.ZENN_USERNAME}&order=latest`
   );
-  const data: ZennPost = await res.json();
+  const data: ZennPosts = await res.json();
   return data.articles;
 };
 
