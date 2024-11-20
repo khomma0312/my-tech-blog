@@ -1,6 +1,6 @@
 import { ZennPosts } from "@/features/zenn/api";
 
-export const zennArticlesMock = (): ZennPosts => ({
+export const zennArticlesMock: ZennPosts = {
   articles: [
     {
       id: 329435,
@@ -104,4 +104,4 @@ export const zennArticlesMock = (): ZennPosts => ({
       publication: null,
     },
   ],
-});
+};
