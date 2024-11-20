@@ -12,44 +12,41 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    url: "https://github.com/alan2207/bulletproof-react",
+    url: "https://github.com/khomma0312/my-tech-blog",
     ogpData: {
-      title: "bulletproof-react",
-      description:
-        "🛡️ ⚛️ A simple, scalable, and powerful architecture for building production ready React applications.  - alan2207/bulletproof-react: 🛡️ ⚛️ A simple, scalable, and powerful architecture for building production ready React applications.",
+      title: "my-tech-blog",
+      description: "個人ブログのソースコード",
       image:
-        "https://opengraph.githubassets.com/922b2f70400a943a0eaa3bce90da3fefd6554553352962eac2ef90c51a42d154/alan2207/bulletproof-react",
+        "https://opengraph.githubassets.com/11bed71e147b5b0140dfa748d7f38ae5e7b14eafce1f5e414ff49f0ab8ec628c/khomma0312/my-tech-blog",
     },
   },
 };
 
 export const NoTitle: Story = {
   args: {
-    url: "https://github.com/alan2207/bulletproof-react",
+    url: "https://github.com/khomma0312/my-tech-blog",
     ogpData: {
       title: "",
-      description:
-        "🛡️ ⚛️ A simple, scalable, and powerful architecture for building production ready React applications.  - alan2207/bulletproof-react: 🛡️ ⚛️ A simple, scalable, and powerful architecture for building production ready React applications.",
+      description: "個人ブログのソースコード",
       image:
-        "https://opengraph.githubassets.com/922b2f70400a943a0eaa3bce90da3fefd6554553352962eac2ef90c51a42d154/alan2207/bulletproof-react",
+        "https://opengraph.githubassets.com/11bed71e147b5b0140dfa748d7f38ae5e7b14eafce1f5e414ff49f0ab8ec628c/khomma0312/my-tech-blog",
     },
   },
   play: ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     expect(canvas.getByRole("paragraph").textContent).toEqual(
-      "https://github.com/alan2207/bulletproof-react"
+      "https://github.com/khomma0312/my-tech-blog"
     );
   },
 };
 
 export const NoOgpImage: Story = {
   args: {
-    url: "https://github.com/alan2207/bulletproof-react",
+    url: "https://github.com/khomma0312/my-tech-blog",
     ogpData: {
-      title: "bulletproof-react",
-      description:
-        "🛡️ ⚛️ A simple, scalable, and powerful architecture for building production ready React applications.  - alan2207/bulletproof-react: 🛡️ ⚛️ A simple, scalable, and powerful architecture for building production ready React applications.",
+      title: "my-tech-blog",
+      description: "個人ブログのソースコード",
       image: "",
     },
   },

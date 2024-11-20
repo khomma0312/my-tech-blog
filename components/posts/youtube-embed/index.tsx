@@ -2,7 +2,7 @@ type Props = {
   url: string;
 };
 
-const YouTubeEmbed = async ({ url }: Props) => {
+const YouTubeEmbed = ({ url }: Props) => {
   const matches = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/]+)\/?(.*)/i);
   const path = matches ? matches[2] : "";
   const videoId = path.replace("watch?v=", "");
