@@ -14,7 +14,7 @@ const navItems = [
   },
   {
     label: <IoLogoGithub className="size-7" />,
-    href: "https://github.com/khomma0312",
+    href: "https://github.com/khomma0312/my-tech-blog",
   },
 ];
 
