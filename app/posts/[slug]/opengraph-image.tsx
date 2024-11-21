@@ -61,10 +61,10 @@ const OgImage = async ({ params }: { params: { slug: string } }) => {
                 src="https://github.com/khomma0312.png"
                 width={45}
                 height={45}
-                alt="GitHub user icon"
+                alt="Blog icon"
                 style={{ borderRadius: "50%" }}
               />
-              <p style={{ fontSize: 24 }}>@khomma0312</p>
+              <p style={{ fontSize: 24 }}>{process.env.SITE_NAME}</p>
             </div>
           </div>
         </div>

@@ -48,7 +48,6 @@ const Post = async ({ params }: { params: Promise<StaticParams> }) => {
     <div className="mx-auto max-w-[460px] md:max-w-prose py-8">
       <article>
         <PostHeader title={title} date={date} tags={tags} />
-        <Divider />
         <PostBody content={content} />
         <Divider />
         <PostFooter />
